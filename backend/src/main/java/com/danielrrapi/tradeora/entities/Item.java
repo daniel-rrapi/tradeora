@@ -33,6 +33,10 @@ public class Item {
 
     private String location;
 
+    @ManyToOne
+    @Column(name = "user_id")
+    private User creator;
+
     private boolean is_shippable;
 
     private boolean is_available;
@@ -45,7 +49,7 @@ public class Item {
     @Column(name = "updated_at")
     private LocalDateTime updatedAt;
 
-    public Item(String name, String category, String description, double price, String location, boolean is_shippable, boolean is_available) {
+    public Item(String name, String category, String description, double price, String location, boolean is_shippable, boolean is_available, User creator) {
         this.name = name;
         this.category = category;
         this.description = description;
@@ -53,5 +57,6 @@ public class Item {
         this.location = location;
         this.is_shippable = is_shippable;
         this.is_available = is_available;
+        this.creator = creator;
     }
 }

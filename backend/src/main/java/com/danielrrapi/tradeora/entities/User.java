@@ -15,6 +15,7 @@ import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.util.Collection;
 import java.util.List;
+import java.util.Set;
 import java.util.UUID;
 
 @Getter
@@ -48,6 +49,9 @@ public class User implements UserDetails {
     private int phoneNumber;
 
     private String role;
+
+    @OneToMany(mappedBy = "creator")
+    private Set<Item> items;
 
     @CreatedDate
     @Column(name = "created_at", updatable = false)
