@@ -46,7 +46,7 @@ public class User implements UserDetails {
     private boolean mailingList;
 
     @Column(name = "phone_number")
-    private int phoneNumber;
+    private String phoneNumber;
 
     private String role;
 
@@ -61,7 +61,7 @@ public class User implements UserDetails {
     @Column(name = "updated_at")
     private LocalDateTime updated_at;
 
-    public User(String firstName, String lastName, String email, String password, LocalDate dob, boolean mailingList, int phoneNumber, String role) {
+    public User(String firstName, String lastName, String email, String password, LocalDate dob, boolean mailingList, String phoneNumber) {
         this.firstName = firstName;
         this.lastName = lastName;
         this.email = email;
@@ -69,7 +69,7 @@ public class User implements UserDetails {
         this.dob = dob;
         this.mailingList = mailingList;
         this.phoneNumber = phoneNumber;
-        this.role = role;
+        this.role = "user";
     }
 
     @Override
