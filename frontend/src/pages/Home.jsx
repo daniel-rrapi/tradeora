@@ -1,12 +1,11 @@
-import { Link } from "react-router-dom";
 import Navbar from "../components/Navbar";
+import SearchBar from "../components/SearchBar";
 
 export default function Home() {
   return (
     <>
       <Navbar />
-      <h1>Home</h1>
-      <Link to="/profile">Profile</Link>
+      <SearchBar />
     </>
   );
 }
