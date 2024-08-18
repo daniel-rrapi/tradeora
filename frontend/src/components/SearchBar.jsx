@@ -1,6 +1,6 @@
 export default function SearchBar() {
   return (
-    <section className="container flex items-end justify-between mx-auto md:w-2/3 shadow-lg p-5">
+    <section className="container flex items-end justify-between mx-auto md:w-2/3 shadow-lg rounded-lg p-5">
       <div className="inline-flex flex-col inline">
         <label htmlFor="">What are you looking for?</label>
         <input className="w-96" type="text" placeholder="Laptop, bike, etc.." />
