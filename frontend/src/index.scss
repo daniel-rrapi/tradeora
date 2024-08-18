@@ -1,0 +1,28 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+a {
+  &:hover {
+    text-decoration: underline;
+  }
+}
+
+.btn {
+  @apply py-2 px-4 font-bold rounded;
+  &.btn {
+    text-decoration: none;
+  }
+}
+
+.btn-primary {
+  @apply bg-primary hover:bg-secondary text-white;
+}
+
+.btn-secondary {
+  @apply bg-[#feeceb]  ring-offset-0 hover:ring-1 hover:ring-primary text-primary;
+}
+
+svg {
+  display: inline;
+}
