@@ -6,15 +6,17 @@ import Home from "./pages/Home";
 import Profile from "./pages/Profile";
 import Item from "./pages/Item";
 import Search from "./pages/Search";
+import Login from "./auth/Login";
 
 export default function App() {
   return (
     <BrowserRouter>
       <Routes>
-        <Route index element={<Home />}></Route>
-        <Route path="profile" element={<Profile />}></Route>
-        <Route path="itm" element={<Item />}></Route>
-        <Route path="search" element={<Search />}></Route>
+        <Route index element={<Home />} />
+        <Route path="profile" element={<Profile />} />
+        <Route path="itm" element={<Item />} />
+        <Route path="search" element={<Search />} />
+        <Route path="login" element={<Login />} />
       </Routes>
     </BrowserRouter>
   );

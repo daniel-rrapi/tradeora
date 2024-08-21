@@ -7,8 +7,10 @@ export default function Navbar() {
         <img className="h-14" src="/full-logo.png" alt="tradeora logo" />
       </Link>
       <div className="my-auto inline-flex items-center gap-5 text-slate-700">
-        <Link className="font-bold">Login</Link>
-        <Link>Signup</Link>
+        <Link className="font-bold" to="/login">
+          Login
+        </Link>
+        <Link to="/signup">Signup</Link>
         <Link className="btn btn-secondary inline-flex items-center gap-x-1	">
           <svg
             className="fill-primary"
