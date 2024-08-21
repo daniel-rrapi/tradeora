@@ -34,7 +34,7 @@ public class Item {
     private String location;
 
     @ManyToOne
-    @Column(name = "user_id")
+    @JoinColumn(name = "user_id")
     private User creator;
 
     private boolean is_shippable;
