@@ -1,6 +1,6 @@
 import { Link, useNavigate } from "react-router-dom";
 import Navbar from "../components/Navbar";
-import { useContext, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import { AuthContext } from "./AuthProvider";
 
 export default function Login() {
@@ -12,10 +12,13 @@ export default function Login() {
   const handleSubmit = async (event) => {
     event.preventDefault();
     await login(email, password);
+  };
+
+  useEffect(() => {
     if (user) {
       navigate("/");
     }
-  };
+  }, [user, navigate]);
 
   return (
     <>
