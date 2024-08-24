@@ -7,6 +7,7 @@ import Profile from "./pages/Profile";
 import Item from "./pages/Item";
 import Search from "./pages/Search";
 import Login from "./auth/Login";
+import { AuthProvider } from "./auth/AuthProvider";
 
 export default function App() {
   return (
@@ -24,6 +25,8 @@ export default function App() {
 
 createRoot(document.getElementById("root")).render(
   <StrictMode>
-    <App></App>
+    <AuthProvider>
+      <App></App>
+    </AuthProvider>
   </StrictMode>
 );
