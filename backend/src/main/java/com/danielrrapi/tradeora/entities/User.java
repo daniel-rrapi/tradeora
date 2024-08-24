@@ -50,8 +50,8 @@ public class User implements UserDetails {
 
     private String role;
 
-    @OneToMany(mappedBy = "creator")
-    private Set<Item> items;
+//    @OneToMany(mappedBy = "creator")
+//    private Set<Item> items;
 
     @CreatedDate
     @Column(name = "created_at", updatable = false)
