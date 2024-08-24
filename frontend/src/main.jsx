@@ -8,13 +8,21 @@ import Item from "./pages/Item";
 import Search from "./pages/Search";
 import Login from "./auth/Login";
 import { AuthProvider } from "./auth/AuthProvider";
+import ProtectedRoute from "./auth/PrivateRoute";
 
 export default function App() {
   return (
     <BrowserRouter>
       <Routes>
         <Route index element={<Home />} />
-        <Route path="profile" element={<Profile />} />
+        <Route
+          path="profile"
+          element={
+            <ProtectedRoute>
+              <Profile />
+            </ProtectedRoute>
+          }
+        />
         <Route path="itm" element={<Item />} />
         <Route path="search" element={<Search />} />
         <Route path="login" element={<Login />} />
