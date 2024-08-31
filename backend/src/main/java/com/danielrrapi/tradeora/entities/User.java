@@ -8,6 +8,7 @@ import lombok.Setter;
 import org.hibernate.annotations.UpdateTimestamp;
 import org.springframework.data.annotation.CreatedDate;
 import org.springframework.data.annotation.LastModifiedDate;
+import org.springframework.format.annotation.DateTimeFormat;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
 
@@ -40,6 +41,7 @@ public class User implements UserDetails {
 
     private String password;
 
+    @DateTimeFormat(pattern = "yyyy/MM/dd")
     private LocalDate dob;
 
     @Column(name = "mailing_list")

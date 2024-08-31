@@ -4,6 +4,7 @@ import com.danielrrapi.tradeora.entities.User;
 import com.danielrrapi.tradeora.payloads.NewUserDTO;
 import com.danielrrapi.tradeora.payloads.UserLoginDTO;
 import com.danielrrapi.tradeora.services.AuthService;
+import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.annotation.AuthenticationPrincipal;
 import org.springframework.web.bind.annotation.*;
@@ -20,7 +21,7 @@ public class AuthController {
     }
 
     @PostMapping("/register")
-    public User register(@RequestBody NewUserDTO payload) {
+    public User register(@RequestBody @Valid NewUserDTO payload) {
         return authService.registerUser(payload);
     }
 
