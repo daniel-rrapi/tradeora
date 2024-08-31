@@ -51,13 +51,39 @@ export const AuthProvider = ({ children }) => {
     }
   };
 
+  const register = async (
+    firstName,
+    lastName,
+    email,
+    password,
+    dob,
+    mailingList,
+    phoneNumber
+  ) => {
+    try {
+      const response = await axios.post(`${apiUrl}/auth/register`, {
+        firstName,
+        lastName,
+        email,
+        password,
+        dob,
+        mailingList,
+        phoneNumber,
+      });
+      return response;
+    } catch (error) {
+      console.error("Error during the login", error);
+      throw error;
+    }
+  };
+
   const logout = () => {
     localStorage.removeItem("authToken");
     setUser(null);
   };
 
   return (
-    <AuthContext.Provider value={{ user, login, logout, loading }}>
+    <AuthContext.Provider value={{ user, login, logout, loading, register }}>
       {children}
     </AuthContext.Provider>
   );

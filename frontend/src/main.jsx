@@ -9,6 +9,7 @@ import Search from "./pages/Search";
 import Login from "./auth/Login";
 import { AuthProvider } from "./auth/AuthProvider";
 import ProtectedRoute from "./auth/PrivateRoute";
+import Signup from "./auth/Signup";
 
 export default function App() {
   return (
@@ -26,6 +27,7 @@ export default function App() {
         <Route path="itm" element={<Item />} />
         <Route path="search" element={<Search />} />
         <Route path="login" element={<Login />} />
+        <Route path="signup" element={<Signup />} />
       </Routes>
     </BrowserRouter>
   );
