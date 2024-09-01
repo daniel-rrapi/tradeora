@@ -34,21 +34,16 @@ export const AuthProvider = ({ children }) => {
   }, []);
 
   const login = async (email, password) => {
-    try {
-      const response = await axios.post(`${apiUrl}/auth/login`, {
-        email,
-        password,
-      });
-      const token = response.data;
-      localStorage.setItem("authToken", token);
-      const userResponse = await axios.get(`${apiUrl}/users/me`, {
-        headers: { Authorization: `Bearer ${token}` },
-      });
-      setUser(userResponse.data);
-    } catch (error) {
-      console.error("Error during the login", error);
-      throw error;
-    }
+    const response = await axios.post(`${apiUrl}/auth/login`, {
+      email,
+      password,
+    });
+    const token = response.data;
+    localStorage.setItem("authToken", token);
+    const userResponse = await axios.get(`${apiUrl}/users/me`, {
+      headers: { Authorization: `Bearer ${token}` },
+    });
+    setUser(userResponse.data);
   };
 
   const register = async (

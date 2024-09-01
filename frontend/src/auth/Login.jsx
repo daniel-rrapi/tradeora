@@ -7,11 +7,16 @@ export default function Login() {
   const { login, user } = useContext(AuthContext);
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const [error, setError] = useState(null);
   const navigate = useNavigate();
 
   const handleSubmit = async (event) => {
     event.preventDefault();
-    await login(email, password);
+    try {
+      await login(email, password);
+    } catch (err) {
+      setError(err.response.data.message);
+    }
   };
 
   useEffect(() => {
@@ -135,6 +140,7 @@ export default function Login() {
           <button className="btn btn-primary mb-1" type="submit">
             Sign in
           </button>
+          <p className="text-red-700 font-bold my-3">{error}</p>
           <p className="text-slate-700">
             You dont&apos;t have an account?{" "}
             <Link className="underline font-bold text-primary" to="/signup">

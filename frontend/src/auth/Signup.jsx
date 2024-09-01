@@ -13,19 +13,25 @@ export default function Signup() {
   const [mailingList, setMailingList] = useState(false);
   const [phoneNumber, setPhoneNumber] = useState("");
   const { register } = useContext(AuthContext);
+  const [error, setError] = useState("");
 
   const handleSubmit = async (event) => {
     event.preventDefault();
-    const res = await register(
-      firstName,
-      lastName,
-      email,
-      password,
-      dob,
-      mailingList,
-      phoneNumber
-    );
-    console.log("res:", res);
+    try {
+      await register(
+        firstName,
+        lastName,
+        email,
+        password,
+        dob,
+        mailingList,
+        phoneNumber
+      );
+    } catch (err) {
+      console.log(err);
+
+      setError(err.response.data);
+    }
   };
   return (
     <>
@@ -40,16 +46,17 @@ export default function Signup() {
             placeholder="Enter your first name"
             onChange={(e) => setFirstName(e.target.value)}
             value={firstName}
-            className="mb-5"
           />
+          <p className="text-red-700 font-bold mb-5">{error.firstName}</p>
+
           <label htmlFor="">Last Name</label>
           <input
             type="text"
             placeholder="Enter your last name"
             onChange={(e) => setLastName(e.target.value)}
             value={lastName}
-            className="mb-5"
           />
+          <p className="text-red-700 font-bold mb-5">{error.lastName}</p>
 
           <label htmlFor="">Email</label>
           <input
@@ -57,8 +64,9 @@ export default function Signup() {
             placeholder="E.g. johndoe@email.com"
             onChange={(e) => setEmail(e.target.value)}
             value={email}
-            className="mb-5"
           />
+          <p className="text-red-700 font-bold mb-5">{error.email}</p>
+
           <label htmlFor="">Password</label>
           <input
             type="password"
@@ -67,8 +75,9 @@ export default function Signup() {
               setPassword(e.target.value);
             }}
             value={password}
-            className="mb-5"
           />
+          <p className="text-red-700 font-bold mb-5">{error.password}</p>
+
           <label htmlFor="">Confirm your password</label>
           <input
             type="password"
@@ -77,23 +86,26 @@ export default function Signup() {
               setPasswordConfirm(e.target.value);
             }}
             value={passwordConfirm}
-            className="mb-5"
           />
+          <p className="text-red-700 font-bold mb-5">{error.password}</p>
+
           <label htmlFor="">Date of Birthday</label>
           <input
             type="date"
             placeholder="E.g. johndoe@email.com"
             onChange={(e) => setDob(e.target.value)}
             value={dob}
-            className="mb-5"
           />
+          <p className="text-red-700 font-bold mb-5">{error.dob}</p>
+
           <label htmlFor="">Phone number</label>
           <input
             type="number"
             onChange={(e) => setPhoneNumber(e.target.value)}
             value={phoneNumber}
-            className="mb-5"
           />
+          <p className="text-red-700 font-bold mb-5">{error.phoneNumber}</p>
+
           <div>
             {" "}
             <input
