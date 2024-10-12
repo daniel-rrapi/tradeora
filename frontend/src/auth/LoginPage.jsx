@@ -3,7 +3,7 @@ import Navbar from "../components/Navbar";
 import { useContext, useEffect, useState } from "react";
 import { AuthContext } from "./AuthProvider";
 
-export default function Login() {
+export default function LoginPage() {
   const { login, user } = useContext(AuthContext);
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");

@@ -3,7 +3,7 @@ import Navbar from "../components/Navbar";
 import { useContext, useState } from "react";
 import { AuthContext } from "./AuthProvider";
 
-export default function Signup() {
+export default function SignupPage() {
   const [firstName, setFirstName] = useState("");
   const [lastName, setLastName] = useState("");
   const [email, setEmail] = useState("");
