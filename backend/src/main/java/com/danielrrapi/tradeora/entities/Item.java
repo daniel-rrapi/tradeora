@@ -9,6 +9,7 @@ import org.springframework.data.annotation.CreatedDate;
 import org.springframework.data.annotation.LastModifiedDate;
 
 import java.time.LocalDateTime;
+import java.util.ArrayList;
 import java.util.UUID;
 
 @Getter
@@ -32,6 +33,8 @@ public class Item {
     private double price;
 
     private String location;
+
+    private ArrayList<String> photos;
 
     @ManyToOne
     @JoinColumn(name = "user_id")
