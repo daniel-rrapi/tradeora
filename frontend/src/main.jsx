@@ -1,33 +1,35 @@
-import { StrictMode } from "react";
-import { createRoot } from "react-dom/client";
+import {StrictMode} from "react";
+import {createRoot} from "react-dom/client";
 import "./index.scss";
-import { BrowserRouter, Routes, Route } from "react-router-dom";
+import {BrowserRouter, Routes, Route} from "react-router-dom";
 import HomePage from "./pages/HomePage";
 import ProfilePage from "./pages/ProfilePage";
 import ItemPage from "./pages/ItemPage";
 import LoginPage from "./auth/LoginPage";
-import { AuthProvider } from "./auth/AuthProvider";
+import {AuthProvider} from "./auth/AuthProvider";
 import ProtectedRoute from "./auth/PrivateRoute";
 import SignupPage from "./auth/SignupPage";
 import SearchPage from "./pages/SearchPage";
+import {AddItemPage} from "./pages/AddItemPage.jsx";
 
 export default function App() {
   return (
     <BrowserRouter>
       <Routes>
-        <Route index element={<HomePage />} />
+        <Route index element={<HomePage/>}/>
         <Route
           path="profile"
           element={
             <ProtectedRoute>
-              <ProfilePage />
+              <ProfilePage/>
             </ProtectedRoute>
           }
         />
-        <Route path="itm" element={<ItemPage />} />
-        <Route path="search" element={<SearchPage />} />
-        <Route path="login" element={<LoginPage />} />
-        <Route path="signup" element={<SignupPage />} />
+        <Route path="itm" element={<ItemPage/>}/>
+        <Route path="insert-item" element={<ProtectedRoute><AddItemPage/></ProtectedRoute>}/>
+        <Route path="search" element={<SearchPage/>}/>
+        <Route path="login" element={<LoginPage/>}/>
+        <Route path="signup" element={<SignupPage/>}/>
       </Routes>
     </BrowserRouter>
   );
