@@ -29,7 +29,7 @@ public class Item {
     private String category;
 
     private String description;
-
+    
     private double price;
 
     private String location;

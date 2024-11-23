@@ -47,7 +47,7 @@ public class JWTFilter extends OncePerRequestFilter {
         filterChain.doFilter(request, response);
     }
 
-    private static List<String> skipFilterUrls = Arrays.asList("/auth/**");
+    private static List<String> skipFilterUrls = Arrays.asList("/auth/**", "/items/categories");
     @Override
     protected boolean shouldNotFilter(HttpServletRequest request) {
         return skipFilterUrls.stream().anyMatch(url -> new AntPathRequestMatcher(url).matches(request));

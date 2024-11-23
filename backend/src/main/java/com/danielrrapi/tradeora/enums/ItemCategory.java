@@ -1,0 +1,15 @@
+package com.danielrrapi.tradeora.enums;
+
+public enum ItemCategory {
+    ELECTRONICS,
+    CLOTHING_AND_ACCESSORIES,
+    HOME_AND_GARDEN,
+    SPORTS_AND_LEISURE,
+    CARS_AND_MOTORCYCLES,
+    BOOKS_MOVIES_AND_MUSIC,
+    GAMES_AND_VIDEO_GAMES,
+    HEALTH_AND_BEAUTY,
+    BABY_AND_CHILDREN,
+    COLLECTIBLES_AND_ART
+}
+
